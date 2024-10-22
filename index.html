@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إدارة الطلبات الواردة والمعلقة</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="https://cdn.prod.website-files.com/614319338322d2f96eb4dd96/62124643bd803240ec14b13a_Wuilt%20logo.svg" alt="Wuilt Logo" class="logo">
+            <h1>إدارة الطلبات الواردة والمعلقة</h1>
+            <p>استخدم قالب طلب الشراء الخاص بنا لإدارة معاملات الموردين بسهولة وتتبع الطلبات المستحقة.</p>
+        </header>
+
+        <form id="purchaseOrderForm">
+            <div class="form-step">
+                <h2>أدخل معلومات شركتك</h2>
+                <div class="form-group">
+                    <label for="companyName">اسم الشركة</label>
+                    <input type="text" id="companyName" placeholder="اسم الشركة">
+                </div>
+                <div class="form-group">
+                    <label for="companyEmail">البريد الإلكتروني</label>
+                    <input type="email" id="companyEmail" placeholder="البريد الإلكتروني">
+                </div>
+                <div class="form-group">
+                    <label for="address">العنوان</label>
+                    <input type="text" id="address" placeholder="العنوان">
+                </div>
+                <div class="form-group">
+                    <label for="city">المدينة</label>
+                    <input type="text" id="city" placeholder="المدينة">
+                </div>
+                <div class="form-group">
+                    <label for="zipCode">الرمز البريدي</label>
+                    <input type="text" id="zipCode" placeholder="الرمز البريدي">
+                </div>
+                <div class="form-group">
+                    <label for="country">البلد</label>
+                    <select id="country">
+                        <option value="US">الولايات المتحدة</option>
+                        <option value="EG">مصر</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="state">الولاية/المحافظة</label>
+                    <input type="text" id="state" placeholder="الولاية/المحافظة">
+                </div>
+                <div class="form-group">
+                    <label><input type="checkbox" id="sameAddress"> الشحن إلى نفس العنوان</label>
+                </div>
+            </div>
+
+            <div class="container vendor-info">
+                <h2>أدخل معلومات المورد</h2>
+                <div class="form-group">
+                    <label for="vendorName">اسم المورد</label>
+                    <input type="text" id="vendorName" placeholder="اسم المورد">
+                </div>
+                <div class="form-group">
+                    <label for="vendorEmail">البريد الإلكتروني</label>
+                    <input type="email" id="vendorEmail" placeholder="البريد الإلكتروني">
+                </div>
+                <div class="form-group">
+                    <label for="vendorPhone">رقم الهاتف</label>
+                    <input type="text" id="vendorPhone" placeholder="رقم الهاتف">
+                </div>
+                <div class="form-group">
+                    <label for="vendorAddress">العنوان</label>
+                    <input type="text" id="vendorAddress" placeholder="العنوان">
+                </div>
+                <div class="form-group">
+                    <label for="vendorCity">المدينة</label>
+                    <input type="text" id="vendorCity" placeholder="المدينة">
+                </div>
+                <div class="form-group">
+                    <label for="vendorZip">الرمز البريدي</label>
+                    <input type="text" id="vendorZip" placeholder="الرمز البريدي">
+                </div>
+                <div class="form-group">
+                    <label for="vendorCountry">البلد</label>
+                    <select id="vendorCountry">
+                        <option value="US">الولايات المتحدة</option>
+                        <option value="EG">مصر</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="vendorState">الولاية / المحافظة</label>
+                    <input type="text" id="vendorState" placeholder="الولاية / المحافظة">
+                </div>
+            </div>
+
+            
+            <div class="container purchase-order-info">
+                <h2>أدخل معلومات أمر الشراء</h2>
+                <div class="form-group">
+                    <label for="purchaseOrderNumber">رقم أمر الشراء</label>
+                    <input type="text" id="purchaseOrderNumber" placeholder="رقم أمر الشراء">
+                </div>
+                <div class="form-group">
+                    <label for="purchaseOrderDate">تاريخ أمر الشراء</label>
+                    <input type="date" id="purchaseOrderDate" value="2024-10-22">
+                </div>
+                <div class="form-group">
+                    <label for="deliveryDate">تاريخ التسليم</label>
+                    <input type="date" id="deliveryDate" value="2024-10-22">
+                </div>
+                <div class="form-group">
+                    <label for="shippingMethod">طريقة الشحن</label>
+                    <input type="text" id="shippingMethod" placeholder="طريقة الشحن">
+                </div>
+                <div class="form-group full-width">
+                    <label for="shippingTerms">شروط الشحن</label>
+                    <textarea id="shippingTerms" placeholder="شروط الشحن"></textarea>
+                </div>
+            </div>
+            
+
+            <div class="container">
+                <h2>أدخل العناصر التي ترغب في طلبها</h2>
+            
+                <form id="purchaseForm">
+                    <table id="itemTable">
+                        <tr>
+                            <td><input type="text" id="item1" placeholder="العنصر"></td>
+                            <td><input type="text" id="desc1" placeholder="الوصف"></td>
+                            <td><input type="number" id="quantity1" value="1" min="1" onchange="calculateTotal()"></td>
+                            <td><input type="number" id="price1" value="0" min="0" onchange="calculateTotal()"></td>
+                            <td><span id="amount1">0.00</span> جنيه</td>
+                        </tr>
+                    </table>
+                
+                    <button type="button" onclick="addItem()">إضافة عنصر</button>
+                
+                    <div>
+                        <label for="taxRate">نسبة الضريبة:</label>
+                        <input type="number" id="taxRate" value="13" min="0" max="100" onchange="calculateTotal()"> %
+                    </div>
+                
+                    <div>
+                        <label>المجموع الفرعي:</label> <span id="subtotal">0.00</span> جنيه
+                    </div>
+                    <div>
+                        <label>الضريبة:</label> <span id="tax">0.00</span> جنيه
+                    </div>
+                    <div>
+                        <label>الإجمالي:</label> <span id="total">0.00</span> جنيه
+                    </div>
+                
+                    <button type="submit">إرسال</button>
+                </form>
+                
+            </div>
+            
+            <script>
+                let itemCount = 1;
+                
+                function calculateTotal() {
+                    let subtotal = 0;
+                    const taxRate = document.getElementById('taxRate').value || 0.13; // Get tax rate from input, default to 13% if empty
+            
+                    for (let i = 1; i <= itemCount; i++) {
+                        const quantity = document.getElementById(`quantity${i}`).value || 0;
+                        const price = document.getElementById(`price${i}`).value || 0;
+                        const amount = quantity * price;
+                        document.getElementById(`amount${i}`).innerText = amount.toFixed(2);
+                        subtotal += amount;
+                    }
+            
+                    const tax = subtotal * (taxRate / 100); // Use editable tax rate
+                    const total = subtotal + tax;
+            
+                    document.getElementById('subtotal').innerText = subtotal.toFixed(2);
+                    document.getElementById('tax').innerText = tax.toFixed(2);
+                    document.getElementById('total').innerText = total.toFixed(2);
+                }
+            
+                function addItem() {
+                    itemCount++;
+                    const table = document.getElementById('itemTable');
+                    const row = document.createElement('tr');
+            
+                    row.innerHTML = `
+                        <td><input type="text" id="item${itemCount}" placeholder="العنصر"></td>
+                        <td><input type="text" id="desc${itemCount}" placeholder="الوصف"></td>
+                        <td><input type="number" id="quantity${itemCount}" value="1" min="1" onchange="calculateTotal()"></td>
+                        <td><input type="number" id="price${itemCount}" value="0" min="0" onchange="calculateTotal()"></td>
+                        <td><span id="amount${itemCount}">0.00</span> جنيه</td>
+                    `;
+            
+                    table.appendChild(row);
+                }
+            
+                document.getElementById('purchaseForm').addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    alert('تم تقديم طلب الشراء بنجاح!');
+                });
+            </script>
+            
+</body>
+</html>

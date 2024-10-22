@@ -1,0 +1,227 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #F9F9F9;
+  direction: rtl;
+  color: #003a2d; /* Dark Teal color from Wuilt logo */
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  background-color: white;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.logo {
+  display: block;
+  margin: 0 auto 20px auto;
+  width: 100px;
+}
+
+header {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+p {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+form {
+  margin-top: 20px;
+}
+
+.form-step {
+  margin-bottom: 30px;
+}
+
+.form-group {
+  display: inline-block;
+  width: 33%; /* Set 33% width for all form groups */
+  padding: 0 10px;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="date"],
+select {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #003a2d; /* Use dark teal for input text */
+}
+
+button {
+  width: 100%;
+  padding: 10px;
+  background-color: #00b187; /* Light green from Wuilt logo */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background-color: #00866b; /* Darker green on hover */
+}
+
+.totals {
+  margin-top: 20px;
+}
+
+.totals div {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.total {
+  font-weight: bold;
+  font-size: 18px;
+}
+
+@media screen and (max-width: 768px) {
+  .form-group {
+      width: 50%; /* On smaller screens, make fields 50% width */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .form-group {
+      width: 100%; /* On mobile, make fields 100% width */
+  }
+}
+input[type="text"], input[type="number"], input[type="date"] {
+  width: calc(100% - 20px);
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+table {
+  width: 100%;
+  margin-bottom: 20px;
+  border-collapse: collapse;
+}
+table th, table td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: center;
+}
+.totals {
+  text-align: right;
+  margin-bottom: 20px;
+}
+.totals div {
+  margin: 10px 0;
+}
+.submit-btn {
+  background-color: #008060;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.submit-btn:hover {
+  background-color: #005a40;
+}
+.vendor-info {
+    margin-top: 40px;
+}
+
+.vendor-info h2 {
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.vendor-info .form-group {
+    display: inline-block;
+    width: 32%; /* Adjust width for inline form elements */
+    padding: 0 10px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+.vendor-info input[type="text"],
+.vendor-info input[type="email"],
+.vendor-info select {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+@media screen and (max-width: 768px) {
+    .vendor-info .form-group {
+        width: 48%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .vendor-info .form-group {
+        width: 100%;
+    }
+}
+.purchase-order-info {
+    margin-top: 40px;
+}
+
+.purchase-order-info h2 {
+    text-align: center;
+    font-size: 22px;
+    margin-bottom: 20px;
+}
+
+.purchase-order-info .form-group {
+    display: inline-block;
+    width: 32%; /* Adjust width for inline form elements */
+    padding: 0 10px;
+    margin-bottom: 15px;
+    box-sizing: border-box;
+}
+
+.purchase-order-info .form-group.full-width {
+    width: 100%;
+}
+
+.purchase-order-info input[type="text"],
+.purchase-order-info input[type="date"],
+.purchase-order-info textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.purchase-order-info textarea {
+    height: 100px;
+}
+
+@media screen and (max-width: 768px) {
+    .purchase-order-info .form-group {
+        width: 48%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .purchase-order-info .form-group {
+        width: 100%;
+    }
+}
